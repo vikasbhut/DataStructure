@@ -59,6 +59,51 @@ public class InorderPreorderTree {
 	}
 	
 	
+	int noOfNode(Node t)
+	{
+		if(t==null)
+			return 0;
+		else
+			return noOfNode(t.left)+noOfNode(t.right)+1;
+	}
+	int noOfLeave(Node t)
+	{
+		if(t==null)
+			return 0;
+		if(t.left==null&&t.right==null)
+			return 1;
+		return noOfLeave(t.left)+noOfLeave(t.right);
+	}
+	
+	int noOfNonLeave(Node t)
+	{
+		if(t==null)
+			return 0;
+		if(t.left==null&&t.right==null)
+			return 0;
+		return noOfNonLeave(t.left)+noOfNonLeave(t.right)+1;
+	}
+	int  noOfFullNode(Node t)
+	{
+		if(t==null)
+				return 0;
+		if(t.left==null&&t.right==null)
+			return 0;
+		return noOfFullNode(t.left)+noOfFullNode(t.right)+((t.left!=null&&t.right!=null)?1:0);
+	}
+	
+	
+	int heightOfTree(Node t)
+	{
+		if(t==null)
+			return 0;
+		if(t.left==null&&t.right==null)
+			return 0;
+		int leftTreeHeight=heightOfTree(t.left);
+		int rightTreeHeight=heightOfTree(t.right);
+		return (1+((leftTreeHeight>rightTreeHeight)?leftTreeHeight:rightTreeHeight));
+	}
+	
 	public static void main(String[] args) {
     
 		
@@ -68,6 +113,14 @@ public class InorderPreorderTree {
 	     
 	     Node root=tree.buildTree(in, pre, 0, in.length-1);
 	     tree.printInorder(root);
+	     
+	     
+	     System.out.println("Height OF Tree:-"+tree.heightOfTree(root));
+	     System.out.println("Total Node :-"+tree.noOfNode(root));
+	     System.out.println("Leave Node :-"+tree.noOfLeave(root));
+	     System.out.println("Non leave Node :-"+tree.noOfNonLeave(root));
+	     System.out.println("Full Node :-"+tree.noOfFullNode(root));
+	     System.out.println("Non Full Node:-"+(tree.noOfNonLeave(root)-tree.noOfFullNode(root)));
 	     
   }
 }
