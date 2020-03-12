@@ -7,7 +7,7 @@ public class PostFixtToInfix {
 	{
 		Stack<String> stack=new Stack<>();
 		
-		for (int i = 0; i < exp.length(); i++) {
+		for (int i =exp.length()-1; i>=0; i--) {
       
 			char ch=exp.charAt(i);
 			if(Character.isLetterOrDigit(ch))
@@ -16,8 +16,8 @@ public class PostFixtToInfix {
 			}
 			else
 			{
-				String str2=stack.pop();
 				String str1=stack.pop();
+				String str2=stack.pop();
 				stack.push(str1+ch+str2);
 			}
       
@@ -31,7 +31,7 @@ public class PostFixtToInfix {
 	
 	public static void main(String args[]) 
 	{ 
-	    String exp = "ab*c+"; 
+	    String exp = "+a*bc"; 
 	    System.out.println( getInfix(exp)); 
 	} 
 }

@@ -17,7 +17,7 @@ public class BinaryTree {
 	{
 		Node newNode=new Node();
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter data to insert into the node or -1 for no node :-");
+		System.out.println("Enter Data:-");
 		int data=sc.nextInt();
 		if(data==-1)
 		{

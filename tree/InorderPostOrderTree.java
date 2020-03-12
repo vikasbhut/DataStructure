@@ -2,13 +2,6 @@ package tree;
 
 
 
-
-class Index { 
-    int index; 
-} 
-
-
-
 public class InorderPostOrderTree {
 	
 	
@@ -33,18 +26,13 @@ static int postIndex=7;
 		
 		if(start>end)
 			return null;
-		
-		Node tNode=new Node(pos[postIndex--]);
-		
+		Node node=new Node(pos[postIndex--]);
 		if(start==end)
-			return tNode;
-		
-		int inindex=search(in, start, end,tNode.data);
-		
-		tNode.right=buildUtil(in, pos,inindex+1, end);
-		tNode.left=buildUtil(in, pos,start,inindex-1);
-		
-		return tNode;
+			return node;
+		int inIndex=search(in, start, end,node.data);
+		node.right=buildUtil(in, pos,inIndex+1, end);
+		node.left=buildUtil(in, pos, start,inIndex-1);
+		return node;
 		
 	}
 	

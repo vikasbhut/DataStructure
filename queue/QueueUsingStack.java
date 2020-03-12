@@ -40,10 +40,12 @@ public class QueueUsingStack {
 	public void reverse()
 	{
 		if(top==-1)
+		{
 			return;
+		}
 		else
 		{
-			int data=pop();
+			int data=this.pop();
 			reverse();
 			insertAtBottom(data);
 		}
@@ -52,12 +54,14 @@ public class QueueUsingStack {
 	public void insertAtBottom(int data)
 	{
 		if(top==-1)
+		{
 			push(data);
+		}
 		else
 		{
-			int i=pop();
+			int d=pop();
 			insertAtBottom(data);
-			push(i);
+			push(d);
 		}
 	}
 	
